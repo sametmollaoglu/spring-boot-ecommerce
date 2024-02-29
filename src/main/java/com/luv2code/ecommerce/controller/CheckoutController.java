@@ -5,7 +5,7 @@ import com.luv2code.ecommerce.dto.PurchaseResponse;
 import com.luv2code.ecommerce.service.CheckoutService;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:4200") // since we add cors allowed origin to MyAppConfig.java
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {

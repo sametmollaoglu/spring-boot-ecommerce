@@ -4,10 +4,13 @@ import com.luv2code.ecommerce.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.data.repository.query.Param;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:4200") // since we add cors allowed origin to mydatarestconfig.java.
+@RepositoryRestResource
 public interface ProductRepository extends JpaRepository<Product, Long> {
     Page<Product> findByCategoryId(@Param("id") Long id, Pageable pageable);
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:4200") // since we add cors allowed origin to mydatarestconfig.java.
 @RepositoryRestResource
 public interface StateRepository extends JpaRepository<State, Integer> {
 
