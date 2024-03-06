@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.logging.Logger;
+
 //@CrossOrigin("http://localhost:4200") // since we add cors allowed origin to MyAppConfig.java
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
+
+    private Logger logger = Logger.getLogger(getClass().getName());
 
     private CheckoutService checkoutService;
 
@@ -34,7 +38,7 @@ public class CheckoutController {
 
     @PostMapping("/payment-intent")
     public ResponseEntity<String> createPaymentIntent(@RequestBody PaymentInfo paymentInfo) throws StripeException {
-
+        logger.info("paymentInfo.amount: "+ paymentInfo.getAmount());
         PaymentIntent paymentIntent = checkoutService.createPaymentIntent(paymentInfo);
 
         String paymentStr = paymentIntent.toJson();
